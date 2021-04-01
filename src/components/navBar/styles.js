@@ -12,7 +12,10 @@ export default makeStyles((theme)=> ({
         textDecoration: 'none'
     },
     brand: {
-        marginRight: '10px'
+        marginRight: '10px',
+        borderRadius: '50%',
+        width: '50px',
+        height: '50px'
     },
     grow:{
         flexGrow: 1

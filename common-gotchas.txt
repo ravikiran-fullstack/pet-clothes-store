@@ -1,0 +1,1 @@
+margin-top for the first element below navbar should be equal to navbar height
