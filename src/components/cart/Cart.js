@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import CartItem from "./cartItem/CartItem";
 
@@ -7,12 +7,28 @@ import { Container, Grid, Typography, Button } from "@material-ui/core";
 
 import useStyles from "./styles";
 
-const Cart = ({ cart }) => {
+const Cart = ({
+  cart,
+  onCartItemQuantityUpdate,
+  onCartItemRemove,
+  onCartEmpty,
+}) => {
   const classes = useStyles();
 
   const EmptyCart = () => (
     <Typography variant="subtitle1">
-      You have no items in your shopping cart, <Link to="/" className={classes.link}>start adding them</Link>
+      You have no items in your shopping cart,{" "}
+      <Button
+        component={Link}
+        to="/"
+        aria-label="Start adding products"
+        color="inherit"
+        variant="contained"
+        color="secondary"
+        size="small"
+      >
+        Start Adding Products
+      </Button>
     </Typography>
   );
 
@@ -21,7 +37,11 @@ const Cart = ({ cart }) => {
       <Grid container spacing={3}>
         {cart.line_items.map((cartItem) => (
           <Grid item xs={12} sm={4} key={cartItem.id}>
-            <CartItem cartItem={cartItem} />
+            <CartItem
+              cartItem={cartItem}
+              onCartItemQuantityUpdate={onCartItemQuantityUpdate}
+              onCartItemRemove={onCartItemRemove}
+            />
           </Grid>
         ))}
       </Grid>
@@ -36,6 +56,7 @@ const Cart = ({ cart }) => {
             size="large"
             variant="contained"
             color="secondary"
+            onClick={onCartEmpty}
           >
             Empty Cart
           </Button>
