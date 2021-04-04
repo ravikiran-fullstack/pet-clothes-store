@@ -6,6 +6,7 @@ import { commerce } from "./lib/commerce";
 import NavBar from "./components/navBar/NavBar";
 import Products from "./components/products/Products";
 import Cart from "./components/cart/Cart";
+import Checkout from "./components/checkoutForm/checkout/Checkout";
 
 // import {Products, NavBar} from './components';
 
@@ -65,6 +66,9 @@ const App = () => {
               onCartItemRemove={handleRemoveCartItem}
               onCartEmpty={handleCartEmpty}
             ></Cart>
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
       </div>
